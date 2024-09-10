@@ -25,12 +25,14 @@ class EchoJUnit:
 
   @Test
   def testDoubleNonempty: Unit =
-    assertEquals("hello hello", (new DoubleEcho).echo("hello"))
+    val sut = new DoubleEcho
+    val result = sut.echo("hello")
+    assertEquals("hello hello", result)
 
   @Test
   def testSimpleUsingList: Unit =
     val echos = List(new SimpleEcho)
-    val result = echos(1).echo("")
+    val result = echos(0).echo("")
     assertEquals("", result)
 
   @Test
